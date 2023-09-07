@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Kafka-Wikimedia-Consumer
+  profiles:
+    active: local
+server:
+  port: 8081

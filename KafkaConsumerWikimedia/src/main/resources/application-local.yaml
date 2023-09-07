@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kafka_stream
+    username: postgres
+    password: Rockers12$
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        show_sql: true
+  kafka:
+    consumer: # kafka will be in multiple brokers, so bootstrap-servers supports multiple servers send it as localhost:9092, localhost:9093
+      bootstrap-servers: localhost:9092
+      group-id: vedhaStreamGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+logging:
+  level:
+    com.vedha.stream.kafka: DEBUG
+
+# Stream Of Messages from wikimedia
+# https://stream.wikimedia.org/v2/stream/recentchange
+kafka:
+  topic:
+    name: vedha-stream

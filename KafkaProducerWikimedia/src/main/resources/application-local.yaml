@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    producer: # kafka will be in multiple brokers, so bootstrap-servers supports multiple servers send it as localhost:9092, localhost:9093
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+# Stream Of Messages from wikimedia
+# https://stream.wikimedia.org/v2/stream/recentchange
+kafka:
+  topic:
+    name: vedha-stream
+  stream:
+    url: https://stream.wikimedia.org/v2/stream/recentchange
+
+logging:
+  level:
+    com.vedha.stream.kafka: DEBUG
