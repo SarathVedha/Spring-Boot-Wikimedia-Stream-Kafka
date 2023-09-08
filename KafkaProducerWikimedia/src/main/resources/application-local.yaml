@@ -17,3 +17,25 @@ kafka:
 logging:
   level:
     com.vedha.stream.kafka: DEBUG
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "Kafka Wikimedia Producer"
+    environment: ${spring.profiles.active}
